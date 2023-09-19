@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const articleSchema = new mongoose.Schema[{
+const articleSchema = new mongoose.Schema({
     title: {
         type: String,
         require: true
@@ -16,6 +16,6 @@ const articleSchema = new mongoose.Schema[{
         type: Date,
         default: Date.now
     }
-}]
+})
 
 module.exports = mongoose.model('article', articleSchema)
