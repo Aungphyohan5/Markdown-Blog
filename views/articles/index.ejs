@@ -16,20 +16,23 @@
         <!--  <% %> is treated as JavaScript and not displayed directly in the output webpage. -->
         <!-- articles.forEach(...) JavaScript loop that iterates through each item in an array called articles.  -->
         <!-- Article => { ... } used to describe what to do with each Article in the loop. -->
-        <% articles.forEach(Article=> { %>
+        <% articles.forEach(article=> { %>
             <div class="card mt-4">
                 <div class="card-body">
                     <h4 class="card-title">
-                        <%= Article.title %>
+                        <%= article.title %>
                     </h4>
                     <div class="card-subtitle text-muted mb-2">
                         <!-- toLocaleDateString() is used to format the date object into a string -->
-                        <%= Article.createdAt.toLocaleDateString() %>
+                        <%= article.createdAt.toLocaleDateString() %>
                     </div>
                     <div class="card-text mb-2">
-                        <%= Article.description %>
+                        <%= article.description %>
                     </div>
-                    <a class="btn btn-primary" href="articles/<%= Article.slug %>">Read More</a>
+                    <a class="btn btn-primary" href="articles/<%= article.slug %>">Read More</a>
+                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger ">Delete</button>
+                    </form>
                 </div>
 
             </div>
