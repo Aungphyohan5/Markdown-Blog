@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const Article = require('./models/articles')
 const articlesRouter = require('./routes/articles')
 const methodOverride = require('method-override')  //method-override middleware
 const app = express()
+const PORT = process.env.PORT || 3000
 
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/markdownBlog')
@@ -22,4 +24,4 @@ app.get('/', async (req, res) => {
     res.render('articles/index', { articles: articles })
 })
 
-app.listen(3000, console.log('server started'))
+app.listen(PORT, () => { console.log(`server started ${PORT}`) })
