@@ -33,7 +33,7 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res, next) => {
     req.article = await Article.findById(req.params.id)
     next()
-}, saveArticleAndRedirect('edit'))
+}, saveArticleAndRedirect('edit'))  // used function
 
 function saveArticleAndRedirect(path) {
     return async (req, res) => {
