@@ -5,7 +5,8 @@ const articlesRouter = require('./routes/articles')
 const methodOverride = require('method-override')  //method-override middleware
 const app = express()
 
-mongoose.connect('mongodb://localhost:27017/markdownBlog')
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/markdownBlog')
 
 app.set('view engine', 'ejs');    //  to use EJS template engine
 app.use(express.urlencoded({ extended: false })) // to access the input from article form 
