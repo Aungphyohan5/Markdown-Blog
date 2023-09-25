@@ -8,7 +8,10 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/markdownBlog')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/markdownBlog', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 app.set('view engine', 'ejs');    //  to use EJS template engine
 app.use(express.urlencoded({ extended: false })) // to access the input from article form 
